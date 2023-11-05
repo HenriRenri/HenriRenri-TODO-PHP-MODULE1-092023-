@@ -18,7 +18,7 @@
       <div class="input-group input-group-sm">
         <input type="text" class="form-control" name="intitule">
         <span class="input-group-append">
-          <button type="submit" class="btn btn-info btn-flat">+</button>
+          <button type="submit" class="btn btn-info btn-flat">Ajouter</button>
         </span>
       </div>
       </form>
