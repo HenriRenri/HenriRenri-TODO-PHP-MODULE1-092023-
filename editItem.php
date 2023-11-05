@@ -2,7 +2,7 @@
     include './fct/item.php';
     include './fct/request.php';
     include './config/app.php';
-  include './connexion.php';
+    include './connexion.php';
 
     #TODO a supprimer
     $id = post('editItem');
