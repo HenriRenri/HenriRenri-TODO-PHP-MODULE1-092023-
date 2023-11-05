@@ -1,12 +1,13 @@
 <?php
 
-  function displayItem($key, $item){
+  function displayItem($item){
 
+    
     // Modification les taches déjat existés 
     $editItemId = get('editItem');
-    if($editItemId === $key){
+    if($editItemId === $item['id']){
       $html = '<form action="editItem.php" method="POST" class="">';
-      $html.= ' <input type="hidden" name="editItem" value="'.$key.'" > ';
+      $html.= ' <input type="hidden" name="editItem" value="'.$item['id'].'" > ';
 
       $html.= '<div class="input-group input-group-sm">
                 <input type="text" class="form-control" name="intitule" value="'.$item['intitule'].'">
@@ -16,11 +17,11 @@
               </div>';
       $html.= '</form>';
     }else{ 
-      
+    
       // Ajouter des nouvelle taches
      $html= '<li class="'. ($item['checked'] ? 'done' : '') .'">
                 <div class="icheck-primary d-inline ml-2">
-                <a href="toggleItem.php?item='.$key.'">
+                <a href="toggleItem.php?item='.$item['id'].'">
                 ';
 
       if($item['checked']){
@@ -39,22 +40,26 @@
                 <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
                 <!-- General tools such as edit or delete-->
                 <div class="tools">
-                  <a href="index.php?editItem='.$key.'">
+                  <a href="index.php?editItem='.$item['id'].'">
                     <i class="fas fa-edit"></i>
                   </a>
-                  <a href="deletedItem.php?item='.$key.'">
+                  <a href="deletedItem.php?item='.$item['id'].'">
                     <i class="fas fa-trash"></i>
                   </a>
                 </div>
             </li>';
+
   }
     return $html;
-  }
+   }
 
+
+  #TODO a suprimer
   function getItems(){
     return unserialize(file_get_contents(List_name));
   }
 
+  #TODO a suprimer
 
 // Enregistrement des taches
   function saveItems($items){
